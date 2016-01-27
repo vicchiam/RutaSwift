@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="RutaSwift" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,58 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="1YR-SY-1t7">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="574"/>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="0.0" width="400" height="574"/>
+                                </variation>
+                            </mapView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="fB7-lH-GIn">
+                                <rect key="frame" x="0.0" y="572" width="600" height="29"/>
+                                <segments>
+                                    <segment title="Normal"/>
+                                    <segment title="Satelite"/>
+                                    <segment title="Hibrido"/>
+                                </segments>
+                                <variation key="widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="572" width="400" height="29"/>
+                                </variation>
+                                <connections>
+                                    <action selector="indexChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="xa4-cn-X0b"/>
+                                </connections>
+                            </segmentedControl>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1YR-SY-1t7" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="0OQ-48-zil"/>
+                            <constraint firstItem="1YR-SY-1t7" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-13" id="5xG-3d-Og2"/>
+                            <constraint firstItem="1YR-SY-1t7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="6BN-h1-utJ"/>
+                            <constraint firstItem="fB7-lH-GIn" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Brm-mJ-Zw6"/>
+                            <constraint firstItem="1YR-SY-1t7" firstAttribute="leading" secondItem="fB7-lH-GIn" secondAttribute="leading" id="LPJ-Pp-Wex"/>
+                            <constraint firstItem="fB7-lH-GIn" firstAttribute="leading" secondItem="1YR-SY-1t7" secondAttribute="leading" id="M04-UU-qne"/>
+                            <constraint firstItem="1YR-SY-1t7" firstAttribute="trailing" secondItem="fB7-lH-GIn" secondAttribute="trailing" id="RWo-aB-o0h"/>
+                            <constraint firstItem="1YR-SY-1t7" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="aSE-GK-gUa"/>
+                            <constraint firstItem="fB7-lH-GIn" firstAttribute="trailing" secondItem="1YR-SY-1t7" secondAttribute="trailing" id="vfu-SV-Lp1"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="fB7-lH-GIn"/>
+                            </mask>
+                        </variation>
+                        <variation key="widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="fB7-lH-GIn"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <connections>
+                        <outlet property="mapa" destination="1YR-SY-1t7" id="9VX-ON-6sH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="564" y="446"/>
         </scene>
     </scenes>
 </document>
